@@ -5,6 +5,10 @@ def wrapping_area(x, y, z):
 	side_areas = [x*y, x*z, y*z]
 	return 2 * sum(side_areas) + min(side_areas)
 
+def ribbon_length(x, y, z):
+	perims = [2*(x+y), 2*(x+z), 2*(y+z)]
+	return min(perims) + x*y*z
+
 def main():
 	presents_list = """29x13x26
 11x11x14
@@ -1006,10 +1010,15 @@ def main():
 3x2x22
 14x3x5
 10x9x8"""
+
 	total_area = 0
+	total_length = 0
 	for present_dim in presents_list.split('\n'):
-		total_area += wrapping_area(*(int(d) for d in present_dim.split('x')))
-	print total_area
+		dims = [int(d) for d in present_dim.split('x')]
+		total_area += wrapping_area(*dims)
+		total_length += ribbon_length(*dims)
+	print '{} ft^2 of wrapping paper'.format(total_area)
+	print '{} ft of ribbon'.format(total_length)
 
 if __name__ == "__main__":
 	main()
