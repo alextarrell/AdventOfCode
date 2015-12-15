@@ -40,6 +40,10 @@ class Wire():
 				raise ValueError('Invalid Operator: ' + self.operator)
 		return getattr(self, '_val')
 
+	def reset(self):
+		if hasattr(self, '_val'):
+			delattr(self, '_val')
+
 pd = re.compile(r'(?:(\w+) )??(?:(\w+) )?(\w+) -> (\w+)')
 def add_component(circuit, direction):
 	m = pd.match(direction)
@@ -61,6 +65,10 @@ def main():
 	for d in directions:
 		add_component(circuit, d)
 
+	print circuit['a'].val()
+
+	circuit['b'].right_operand = circuit['a'].val()
+	[v.reset() for v in circuit.itervalues()]
 	print circuit['a'].val()
 
 def get_input():
