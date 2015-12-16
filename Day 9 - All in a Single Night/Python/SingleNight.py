@@ -33,7 +33,16 @@ def main():
 		else:
 			raise ValueError("Could not parse '{}'".format(l))
 
-	print min(calc_distance(distance_lookup, path) for path in itertools.permutations(distance_lookup.keys()))
+	low = 1000000
+	high = 0
+	for path in itertools.permutations(distance_lookup.keys()):
+		d = calc_distance(distance_lookup, path)
+		if d > high:
+			high = d
+		if d < low:
+			low = d
+	print low
+	print high
 
 def get_input():
 	with open('../day_9_input.txt') as directions:
