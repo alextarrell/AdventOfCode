@@ -8,6 +8,23 @@ def pairwise(iterable):
     next(b, None)
     return itertools.izip(a, b)
 
+def optimal(guests):
+	optimal_combination = None
+	optimal_happiness = 0
+	for g in itertools.permutations(guests.keys()):
+		g = list(g)
+		g.append(g[0])
+
+		happiness = 0
+		for p1, p2 in pairwise(iter(g)):
+			happiness += guests[p1][p2] + guests[p2][p1]
+
+		if happiness > optimal_happiness:
+			optimal_combination = g[:-1]
+			optimal_happiness = happiness
+
+	return optimal_happiness, optimal_combination
+
 glp = re.compile(r'(.*) would (gain|lose) (\d+) happiness units by sitting next to (.*)\.')
 def main():
 	guest_list = get_input()
@@ -28,19 +45,13 @@ def main():
 		else:
 			raise ValueError('Could not match input: {}'.format(g))
 
-	optimal_happiness = 0
-	for g in itertools.permutations(guests.keys()):
-		g = list(g)
-		g.append(g[0])
+	print optimal(guests)
 
-		happiness = 0
-		for p1, p2 in pairwise(iter(g)):
-			happiness += guests[p1][p2] + guests[p2][p1]
+	for g in guests.itervalues():
+		g['Me'] = 0
+	guests['Me'] = {g: 0 for g in guests.keys()}
 
-		if happiness > optimal_happiness:
-			optimal_happiness = happiness
-
-	print optimal_happiness
+	print optimal(guests)
 
 def get_input():
 	with open('../day_13_input.txt') as directions:
