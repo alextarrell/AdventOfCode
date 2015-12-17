@@ -33,7 +33,10 @@ def gen_passwords(inpt, validators=[]):
 			yield password
 
 def main():
-	print next(gen_passwords('cqjxjnds', [req_1, req_2, req_3]))
+	password_generator = gen_passwords('cqjxjnds', [req_1, req_2, req_3])
+
+	print next(password_generator)
+	print next(password_generator)
 
 if __name__ == "__main__":
 	main()
