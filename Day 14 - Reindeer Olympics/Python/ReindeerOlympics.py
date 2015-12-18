@@ -2,7 +2,8 @@
 # Day 14 - Reindeer Olympics
 
 import re
-from collections import namedtuple
+from collections import defaultdict, namedtuple
+from operator import itemgetter
 
 Reindeer = namedtuple('Reindeer', 'name, speed, move_time, rest_time')
 
@@ -18,14 +19,29 @@ def calc_travel(time, reindeer):
 	remainder = time % interval
 	moving_time = reindeer.move_time * sets
 	moving_time += reindeer.move_time if remainder > reindeer.move_time else remainder
-	return moving_time * reindeer.speed
+	return moving_time * reindeer.speed, reindeer.name
 
 rp = re.compile(r'(\w+) can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds\.')
 def main():
 	stats = get_input()
 	reindeer = [Reindeer(*map(try_int, rp.match(s).groups())) for s in stats]
 
-	print max(calc_travel(2503, r) for r in reindeer)
+	m = max((calc_travel(2503, r) for r in reindeer), key=itemgetter(0))
+	print '{} went {} km'.format(m[1], m[0])
+
+	reindeer_points = defaultdict(list)
+	for t in xrange(1, 2503):
+		results = [calc_travel(t, r) for r in reindeer]
+		m = max(results, key=itemgetter(0))[0]
+
+		for r in results:
+			if r[0] == m:
+				reindeer_points[r[1]].append(r[0])
+
+	scores = [(r[0], len(r[1])) for r in reindeer_points.iteritems()]
+	m = max(scores, key=itemgetter(1))
+	print '{} had {} pts'.format(m[0], m[1])
+
 
 def get_input():
 	with open('../day_14_input.txt') as stats:
