@@ -42,7 +42,6 @@ def main():
 	m = max(scores, key=itemgetter(1))
 	print '{} had {} pts'.format(m[0], m[1])
 
-
 def get_input():
 	with open('../day_14_input.txt') as stats:
 		return [s.strip() for s in stats]
