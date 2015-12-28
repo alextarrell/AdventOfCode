@@ -21,11 +21,24 @@ def score(sue):
 	return (sum(1 if str(master_sue[m.group(1)]) == m.group(2) else 0
 				  for m in ps.finditer(sue)), sue)
 
+def range_score(sue):
+	for m in ps.finditer(sue):
+		if m.group(1) in ('cats', 'trees'):
+			if int(master_sue[m.group(1)]) > int(m.group(2)):
+				return (False, sue)
+		elif m.group(1) in ('pomeranians', 'goldfish'):
+			if int(master_sue[m.group(1)]) <= int(m.group(2)):
+				return (False, sue)
+		else:
+			if str(master_sue[m.group(1)]) != m.group(2):
+				return (False, sue)
+	return (True, sue)
+
 def main():
 	sues = get_input()
 
-	scores = [score(s) for s in sues]
-	print max(scores)
+	print max(score(s) for s in sues)
+	print max(range_score(s) for s in sues)
 
 def get_input():
 	with open('../day_16_input.txt') as sues:
