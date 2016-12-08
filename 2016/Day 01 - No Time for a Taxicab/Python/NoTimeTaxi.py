@@ -11,6 +11,8 @@ def main():
 	for directions in maps:
 		orient = NORTH
 		x, y = 0, 0
+		stops = set((0, 0))
+		dupes = []
 
 		for d in directions.split(', '):
 			if d[0] == 'R':
@@ -32,16 +34,26 @@ def main():
 				print "Invalid direction: '" + d + "'"
 				continue
 
-			if orient == NORTH:
-				y += dist
-			elif orient == SOUTH:
-				y -= dist
-			elif orient == EAST:
-				x += dist
-			elif orient == WEST:
-				x -= dist
+			for _ in xrange(dist):
+				if orient == NORTH:
+					y += 1
+				elif orient == SOUTH:
+					y -= 1
+				elif orient == EAST:
+					x += 1
+				elif orient == WEST:
+					x -= 1
 
-		print 'Final position of ({}, {}) is {} blocks away'.format(x, y, abs(x) + abs(y))
+				if (x, y) not in stops:
+					stops.add((x, y))
+				else:
+					dupes.append((x, y))
+
+		print 'You\'ve arrived at ({}, {}), {} blocks from the start.'.format(x, y, abs(x) + abs(y)),
+		if dupes:
+			print '({}, {}) at {} blocks was the first location visited twice'.format(dupes[0][0], dupes[0][1], abs(dupes[0][0]) + abs(dupes[0][1]))
+		else:
+			print 'No locations were visited twice'
 
 
 def get_input():
