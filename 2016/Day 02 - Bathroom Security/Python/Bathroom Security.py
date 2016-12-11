@@ -1,9 +1,6 @@
 #! /usr/bin/env python
 # Day 2 - Bathroom Security
 
-def clamp(val, low, high):
-    return max(min(high, val), low)
-
 def get_code(start, directions, keypad):
 	code = []
 	x, y = next(k for k, v in keypad.iteritems() if v == start)
