@@ -5,17 +5,17 @@ from hashlib import md5
 from itertools import islice, count, chain
 
 class CachedGenerator(object):
-    def __init__(self, iterator):
-        self._iter = iter(iterator)
-        self.cache = []
+	def __init__(self, iterator):
+		self._iter = iter(iterator)
+		self.cache = []
 
-    def __iter__(self):
-        return chain(self.cache, self._gen_iter())
+	def __iter__(self):
+		return chain(self.cache, self._gen_iter())
 
-    def _gen_iter(self):
-        for val in self._iter:
-            self.cache.append(val)
-            yield val
+	def _gen_iter(self):
+		for val in self._iter:
+			self.cache.append(val)
+			yield val
 
 def gen_hash(base, i):
 	return md5(base + str(i)).hexdigest()
