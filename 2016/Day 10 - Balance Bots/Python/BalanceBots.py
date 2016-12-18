@@ -89,6 +89,9 @@ def main():
 	target = next(b.num for b in bots.itervalues() if 61 in b.history and 17 in b.history)
 	print 'Bot {} compares the 61 and 17 microchips'.format(target)
 
+	vals = [outputs[v].content[0] for v in ['0', '1', '2']]
+	print '{} = {}'.format(" * ".join(vals), int(vals[0]) * int(vals[1]) * int(vals[2]))
+
 def get_input():
 	with open('../day_10_input.txt') as data:
 		return [d.strip() for d in data]
