@@ -37,8 +37,8 @@ def range_score(sue):
 def main():
 	sues = get_input()
 
-	print max(score(s) for s in sues)
-	print max(range_score(s) for s in sues)
+	print(max(score(s) for s in sues))
+	print(max(range_score(s) for s in sues))
 
 def get_input():
 	with open('../day_16_input.txt') as sues:

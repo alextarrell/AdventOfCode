@@ -7,12 +7,12 @@ sys.path.append("../../..")
 from python_util import prints, get_input
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	prints(['0', '3', '0', '1', '-3'], follow, 5)
 	prints(get_input(), follow)
 
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 
 	prints(['0', '3', '0', '1', '-3'], follow_mod, 10)
 	prints(get_input(), follow_mod)

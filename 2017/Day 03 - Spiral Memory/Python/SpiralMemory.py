@@ -8,7 +8,7 @@ from python_util import prints, get_input
 from itertools import permutations
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	prints(1, spiral_dist, 0)
 	prints(3, spiral_dist, 2)

@@ -15,7 +15,7 @@ class Tower():
 		match = re_struct.match(structure)
 		self.name = match.group(1)
 		self._weight = int(match.group(2))
-		self.subs = filter(None, (match.group(3) or "").split(', '))
+		self.subs = [_f for _f in (match.group(3) or "").split(', ') if _f]
 		self.parent = None
 
 	def link(self, lookup):
@@ -39,7 +39,7 @@ class Tower():
 	__repr__ = __str__
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	sample = [
 		"pbga (66)",
@@ -60,7 +60,7 @@ def main():
 	prints(sample, find_bottom, 'tknk')
 	prints(get_input(), find_bottom)
 
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 	prints(sample, find_imbalance, 60)
 	prints(get_input(), find_imbalance)
 

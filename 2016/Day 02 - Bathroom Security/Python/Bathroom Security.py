@@ -3,7 +3,7 @@
 
 def get_code(start, directions, keypad):
 	code = []
-	x, y = next(k for k, v in keypad.iteritems() if v == start)
+	x, y = next(k for k, v in keypad.items() if v == start)
 	for line in directions:
 		for i in line:
 			if i == 'U' and (x, y - 1) in keypad:
@@ -37,7 +37,7 @@ def main():
 		(2, 2): '9'
 	}
 
-	print "The bathroom code is: {}".format(get_code('5', directions, keypad))
+	print("The bathroom code is: {}".format(get_code('5', directions, keypad)))
 
 	#     1
 	#   2 3 4
@@ -60,7 +60,7 @@ def main():
 		(2, 4): 'D'
 	}
 
-	print "The real bathroom code is: {}".format(get_code('5', directions, keypad))
+	print("The real bathroom code is: {}".format(get_code('5', directions, keypad)))
 
 def get_input():
 	with open('../day_2_input.txt') as stats:

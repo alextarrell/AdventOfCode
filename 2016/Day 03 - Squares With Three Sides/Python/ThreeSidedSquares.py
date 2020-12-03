@@ -11,11 +11,11 @@ def main():
 
 	valid_rows = [verts for verts in triangles if 2 * max(verts) < sum(verts)]
 
-	print "Of the {} listed triangles, {} are possible horizontally".format(len(triangles), len(valid_rows))
+	print("Of the {} listed triangles, {} are possible horizontally".format(len(triangles), len(valid_rows)))
 
-	valid_verticals = [verts for verts in chunk(chain.from_iterable(zip(*triangles)), 3) if 2 * max(verts) < sum(verts)]
+	valid_verticals = [verts for verts in chunk(chain.from_iterable(list(zip(*triangles))), 3) if 2 * max(verts) < sum(verts)]
 
-	print "When interpreted vertically, {} are valid".format(len(valid_verticals))
+	print("When interpreted vertically, {} are valid".format(len(valid_verticals)))
 
 def get_input():
 	with open('../day_3_input.txt') as triangles:

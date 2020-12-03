@@ -8,7 +8,7 @@ from python_util import prints, get_input
 from itertools import permutations
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	sample = [
 		"5 1 9 5",
@@ -19,7 +19,7 @@ def main():
 	prints(sample, checksum, 18)
 	prints(get_input(), checksum)
 
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 	sample = [
 		"5 9 2 8",
 		"9 4 7 3",

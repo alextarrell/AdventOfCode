@@ -23,8 +23,8 @@ def basement_finder(directions):
 
 def main():
 	directions = get_input()
-	print pather(directions)
-	print basement_finder(directions)
+	print(pather(directions))
+	print(basement_finder(directions))
 
 def get_input():
 	with open('../day_1_input.txt') as directions:

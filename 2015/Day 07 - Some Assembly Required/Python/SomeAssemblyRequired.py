@@ -56,7 +56,7 @@ def add_component(circuit, direction):
 		part = Wire(circuit, left_operand, right_operand, operator)
 		circuit[identifier] = part
 	else:
-		print 'Could not parse direction', direction
+		print('Could not parse direction', direction)
 
 def main():
 	directions = get_input()
@@ -65,11 +65,11 @@ def main():
 	for d in directions:
 		add_component(circuit, d)
 
-	print circuit['a'].val()
+	print(circuit['a'].val())
 
 	circuit['b'].right_operand = circuit['a'].val()
-	[v.reset() for v in circuit.itervalues()]
-	print circuit['a'].val()
+	[v.reset() for v in circuit.values()]
+	print(circuit['a'].val())
 
 def get_input():
 	with open('../day_7_input.txt') as directions:

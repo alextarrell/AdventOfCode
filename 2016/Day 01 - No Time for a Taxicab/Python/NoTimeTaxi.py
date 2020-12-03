@@ -20,7 +20,7 @@ def main():
 			elif d[0] == 'L':
 				orient -= 1
 			else:
-				print "Invalid direction: '" + d + "'"
+				print("Invalid direction: '" + d + "'")
 				continue
 
 			if orient < NORTH:
@@ -31,10 +31,10 @@ def main():
 			try:
 				dist = int(d[1:])
 			except:
-				print "Invalid direction: '" + d + "'"
+				print("Invalid direction: '" + d + "'")
 				continue
 
-			for _ in xrange(dist):
+			for _ in range(dist):
 				if orient == NORTH:
 					y += 1
 				elif orient == SOUTH:
@@ -49,11 +49,11 @@ def main():
 				else:
 					dupes.append((x, y))
 
-		print 'You\'ve arrived at ({}, {}), {} blocks from the start.'.format(x, y, abs(x) + abs(y)),
+		print('You\'ve arrived at ({}, {}), {} blocks from the start.'.format(x, y, abs(x) + abs(y)), end=' ')
 		if dupes:
-			print '({}, {}) at {} blocks was the first location visited twice'.format(dupes[0][0], dupes[0][1], abs(dupes[0][0]) + abs(dupes[0][1]))
+			print('({}, {}) at {} blocks was the first location visited twice'.format(dupes[0][0], dupes[0][1], abs(dupes[0][0]) + abs(dupes[0][1])))
 		else:
-			print 'No locations were visited twice'
+			print('No locations were visited twice')
 
 
 def get_input():

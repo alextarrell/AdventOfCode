@@ -6,12 +6,12 @@ import re, itertools
 def pairwise(iterable):
     a, b = itertools.tee(iterable)
     next(b, None)
-    return itertools.izip(a, b)
+    return zip(a, b)
 
 def optimal(guests):
 	optimal_combination = None
 	optimal_happiness = 0
-	for g in itertools.permutations(guests.keys()):
+	for g in itertools.permutations(list(guests.keys())):
 		g = list(g)
 		g.append(g[0])
 
@@ -45,13 +45,13 @@ def main():
 		else:
 			raise ValueError('Could not match input: {}'.format(g))
 
-	print optimal(guests)
+	print(optimal(guests))
 
-	for g in guests.itervalues():
+	for g in guests.values():
 		g['Me'] = 0
-	guests['Me'] = {g: 0 for g in guests.keys()}
+	guests['Me'] = {g: 0 for g in list(guests.keys())}
 
-	print optimal(guests)
+	print(optimal(guests))
 
 def get_input():
 	with open('../day_13_input.txt') as directions:

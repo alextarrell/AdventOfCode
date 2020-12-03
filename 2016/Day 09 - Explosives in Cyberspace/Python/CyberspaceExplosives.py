@@ -31,7 +31,7 @@ def main():
 	files = get_input()
 
 	for idx, f in enumerate(files):
-		print 'The decompressed length of file {} is {}, or {} with recursion'.format(idx + 1, decom(f, False), decom(f))
+		print('The decompressed length of file {} is {}, or {} with recursion'.format(idx + 1, decom(f, False), decom(f)))
 
 def get_input():
 	with open('../day_9_input.txt') as data:

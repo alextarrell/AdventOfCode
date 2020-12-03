@@ -19,12 +19,12 @@ def main():
 	total_diff = 0
 	for l in lines:
 		total_diff += len_code(l) - len_true(l)
-	print total_diff
+	print(total_diff)
 
 	total_diff = 0
 	for l in lines:
 		total_diff += len_escaped(l) - len_code(l)
-	print total_diff
+	print(total_diff)
 
 def get_input():
 	with open('../day_8_input.txt') as directions:

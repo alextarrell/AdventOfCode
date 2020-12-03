@@ -27,13 +27,13 @@ def letter_shift(c, num):
 def main():
 	rooms = get_input()
 
-	valid_rooms = filter(is_valid_room, rooms)
+	valid_rooms = list(filter(is_valid_room, rooms))
 
-	print 'Of the {} rooms, {} were valid and contained a total sectorId of {}'.format(
-		len(rooms), len(valid_rooms), sum(r['sectorId'] for r in valid_rooms))
+	print('Of the {} rooms, {} were valid and contained a total sectorId of {}'.format(
+		len(rooms), len(valid_rooms), sum(r['sectorId'] for r in valid_rooms)))
 
 	target = next(room for room in valid_rooms if 'northpole' in room['decrypted'])
-	print 'The North Pole objects are stored in sector {} ({})'.format(target['sectorId'], target['decrypted'])
+	print('The North Pole objects are stored in sector {} ({})'.format(target['sectorId'], target['decrypted']))
 
 def get_input():
 	# return [parse(d) for d in [

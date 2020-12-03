@@ -7,7 +7,7 @@ sys.path.append("../../..")
 from python_util import prints, get_input
 
 def main():
-	print "\n*** Part 1 ***\n"
+	print("\n*** Part 1 ***\n")
 	prints('1122', solve_next, 3)
 	prints('1111', solve_next, 4)
 	prints('1234', solve_next, 0)
@@ -15,7 +15,7 @@ def main():
 	for captcha in get_input():
 		prints(captcha, solve_next)
 
-	print "\n*** Part 2 ***\n"
+	print("\n*** Part 2 ***\n")
 	prints ('1212', solve_mid, 6)
 	prints ('1221', solve_mid, 0)
 	prints ('123425', solve_mid, 4)

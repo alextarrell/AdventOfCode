@@ -9,7 +9,7 @@ from collections import Counter
 from itertools import permutations
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	prints("aa bb cc dd ee", no_dupes, True)
 	prints("aa bb cc dd aa", no_dupes, False)
@@ -27,7 +27,7 @@ def no_dupes(phrase):
 	return Counter(phrase.split(' ')).most_common(1)[0][1] == 1
 
 def count_no_dupes(phrases):
-	return len(filter(None, [no_dupes(p) for p in phrases]))
+	return len([_f for _f in [no_dupes(p) for p in phrases] if _f])
 
 def no_anadupes(phrase):
 	anagrams = set()
@@ -39,7 +39,7 @@ def no_anadupes(phrase):
 	return True
 
 def count_no_anadupes(phrases): 
-	return len(filter(None, [no_anadupes(p) for p in phrases]))
+	return len([_f for _f in [no_anadupes(p) for p in phrases] if _f])
 
 if __name__ == '__main__':
 	main()

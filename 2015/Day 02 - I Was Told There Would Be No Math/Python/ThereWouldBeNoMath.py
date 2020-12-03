@@ -18,8 +18,8 @@ def main():
 		dims = [int(d) for d in present_dim.split('x')]
 		total_area += wrapping_area(*dims)
 		total_length += ribbon_length(*dims)
-	print '{} ft^2 of wrapping paper'.format(total_area)
-	print '{} ft of ribbon'.format(total_length)
+	print('{} ft^2 of wrapping paper'.format(total_area))
+	print('{} ft of ribbon'.format(total_length))
 
 def get_input():
 	with open('../day_2_input.txt') as directions:

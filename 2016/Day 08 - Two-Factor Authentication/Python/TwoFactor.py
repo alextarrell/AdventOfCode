@@ -10,13 +10,13 @@ class Screen(object):
 	def __init__(self, width, height):
 		super(Screen, self).__init__()
 
-		self.grid = [[0 for w in xrange(width)] for h in xrange(height)]
+		self.grid = [[0 for w in range(width)] for h in range(height)]
 		self.width = width
 		self.height = height
 
 	def rect(self, width, height):
-		for h in xrange(height):
-			for w in xrange(width):
+		for h in range(height):
+			for w in range(width):
 				self.grid[h][w] = 1
 
 	def rotateCol(self, column, amount):
@@ -53,10 +53,10 @@ def main():
 		elif match and match.group(1) == 'y':
 			scr.rotateRow(int(match.group(2)), int(match.group(3)))
 
-		print scr
-		print
+		print(scr)
+		print()
 
-	print "The Screen contains {} lit pixels".format(scr.litPixels())
+	print("The Screen contains {} lit pixels".format(scr.litPixels()))
 
 def get_input():
 	with open('../day_8_input.txt') as data:

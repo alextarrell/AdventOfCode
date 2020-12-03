@@ -12,10 +12,10 @@ def sum_node(node, ignore_key=None):
 		except ValueError:
 			return 0
 	elif isinstance(node, dict):
-		if ignore_key and ignore_key in node.values():
+		if ignore_key and ignore_key in list(node.values()):
 			return 0
 		else:
-			return sum([sum_node(n, ignore_key) for n in node.itervalues()])
+			return sum([sum_node(n, ignore_key) for n in node.values()])
 	elif isinstance(node, list):
 		return sum([sum_node(n, ignore_key) for n in node])
 	else:
@@ -23,8 +23,8 @@ def sum_node(node, ignore_key=None):
 
 def main():
 	json_doc = json.loads(get_input())
-	print sum_node(json_doc)
-	print sum_node(json_doc, 'red')
+	print(sum_node(json_doc))
+	print(sum_node(json_doc, 'red'))
 
 def get_input():
 	with open('../day_12_input.txt') as json_doc:

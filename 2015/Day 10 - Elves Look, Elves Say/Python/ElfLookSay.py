@@ -12,9 +12,9 @@ def gen_seq(inpt):
 def main():
 	for index, result in enumerate(itertools.islice(gen_seq('3113322113'), 50)):
 		if index == 39:
-			print len(result)
+			print(len(result))
 		elif index == 49:
-			print len(result)
+			print(len(result))
 
 if __name__ == "__main__":
 	main()

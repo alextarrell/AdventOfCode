@@ -7,10 +7,10 @@ def main():
 	signals = get_input()
 
 	corrected = ''.join([Counter(s).most_common(1)[0][0] for s in zip(*signals)])
-	print 'The error-corrected message is {}'.format(corrected)
+	print('The error-corrected message is {}'.format(corrected))
 
 	corrected = ''.join([Counter(s).most_common()[-1][0] for s in zip(*signals)])
-	print 'The real error-corrected message is {}'.format(corrected)
+	print('The real error-corrected message is {}'.format(corrected))
 
 def get_input():
 	with open('../day_6_input.txt') as data:

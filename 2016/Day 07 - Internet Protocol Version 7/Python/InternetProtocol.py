@@ -26,7 +26,7 @@ def main():
 
 	tls_addrs = [addr for addr in addresses if supportsTLS(addr)]
 	ssl_addrs = [addr for addr in addresses if supportsSSL(addr)]
-	print 'Of the {} IP addresses, {} support TLS and {} support SSL'.format(len(addresses), len(tls_addrs), len(ssl_addrs))
+	print('Of the {} IP addresses, {} support TLS and {} support SSL'.format(len(addresses), len(tls_addrs), len(ssl_addrs)))
 
 def get_input():
 	with open('../day_7_input.txt') as data:

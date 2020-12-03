@@ -10,12 +10,12 @@ def main():
 	i = 0
 	while not find_hash('yzbqklnj', i).startswith('00000'):
 		i += 1
-	print i
+	print(i)
 
 	i = 0
 	while not find_hash('yzbqklnj', i).startswith('000000'):
 		i += 1
-	print i
+	print(i)
 
 if __name__ == "__main__":
 	main()

@@ -24,8 +24,8 @@ def prints(data, solver, solution=None):
 	result = solver(data)
 	if solution is not None:
 		if result == solution:
-			print "SUCCESS: {} ==> {}".format(data, solution)
+			print("SUCCESS: {} ==> {}".format(data, solution))
 		else:
-			print "FAIL: {} ==> {} (Expected {})".format(data, result, solution)
+			print("FAIL: {} ==> {} (Expected {})".format(data, result, solution))
 	else:
-		print "Solution: {}".format(result)
+		print("Solution: {}".format(result))

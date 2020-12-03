@@ -35,12 +35,12 @@ def main():
 	nice_strings = 0
 	for s in unknown_lines:
 		nice_strings += 1 if is_nice(s) else 0
-	print 'Of {} lines, {} are nice'.format(len(unknown_lines), nice_strings)
+	print('Of {} lines, {} are nice'.format(len(unknown_lines), nice_strings))
 
 	nice_strings = 0
 	for s in unknown_lines:
 		nice_strings += 1 if is_nice_v2(s) else 0
-	print 'Of {} lines, {} are nice under new criteria'.format(len(unknown_lines), nice_strings)
+	print('Of {} lines, {} are nice under new criteria'.format(len(unknown_lines), nice_strings))
 
 def get_input():
 	with open('../day_5_input.txt') as directions:

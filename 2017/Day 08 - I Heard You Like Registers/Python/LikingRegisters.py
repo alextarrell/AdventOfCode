@@ -18,11 +18,11 @@ def main():
 		"c inc -20 if c == 10"
 	]
 
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 	prints(sample, get_max_reg, 1)
 	prints(get_input(), get_max_reg)
 	
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 	prints(sample, track_max_reg, 10)
 	prints(get_input(), track_max_reg)
 

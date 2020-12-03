@@ -7,7 +7,7 @@ sys.path.append("../../..")
 from python_util import prints, get_input
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 	prints(r"{}", score, 1)
 	prints(r"{{{}}}", score, 6)
 	prints(r"{{},{}}", score, 5)
@@ -18,7 +18,7 @@ def main():
 	prints(r"{{<a!>},{<a!>},{<a!>},{<ab>}}", score, 3)
 	prints(get_input()[0], score)
 
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 	prints(r"<>", garbage, 0)
 	prints(r"<random characters>", garbage, 17)
 	prints(r"<<<<>", garbage, 3)

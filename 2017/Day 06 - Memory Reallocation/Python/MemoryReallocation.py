@@ -7,13 +7,13 @@ sys.path.append("../../..")
 from python_util import prints, get_input
 
 def main():
-	print "*** Part 1 ***"
+	print("*** Part 1 ***")
 
 	prints('0 2 7 0', reallocate, ('2 4 1 2', 5))
 	for banks in get_input():
 		prints(banks.replace('\t', ' '), reallocate)
 
-	print "*** Part 2 ***"
+	print("*** Part 2 ***")
 
 	prints('0 2 7 0', loop, 4)
 	for banks in get_input():

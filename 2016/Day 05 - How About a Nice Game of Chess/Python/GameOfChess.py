@@ -26,7 +26,7 @@ def main():
 	for door in doors:
 		hash_generator = CachedGenerator(gen_hash(door, i) for i in count() if gen_hash(door, i)[:5] == '00000')
 		hashs = list(islice(hash_generator, 8))
-		print 'The password for door ID {} is {}'.format(door, ''.join(h[5] for h in hashs))
+		print('The password for door ID {} is {}'.format(door, ''.join(h[5] for h in hashs)))
 
 		password = list('_' * 8)
 		gen = iter(hash_generator)
@@ -36,9 +36,9 @@ def main():
 			if idx >= len(password) or password[idx] != '_': continue
 
 			password[idx] = ch
-			print ''.join(password)
+			print(''.join(password))
 
-		print 'The second password is {}'.format(''.join(password))
+		print('The second password is {}'.format(''.join(password)))
 
 def get_input():
 	with open('../day_5_input.txt') as data:

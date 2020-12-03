@@ -6,7 +6,7 @@ import itertools, re
 def pairwise(iterable):
     a, b = itertools.tee(iterable)
     next(b, None)
-    return itertools.izip(a, b)
+    return zip(a, b)
 
 def calc_distance(lookup, path):
 	return sum(lookup[p][s] for p, s in pairwise(path))
@@ -35,14 +35,14 @@ def main():
 
 	low = 1000000
 	high = 0
-	for path in itertools.permutations(distance_lookup.keys()):
+	for path in itertools.permutations(list(distance_lookup.keys())):
 		d = calc_distance(distance_lookup, path)
 		if d > high:
 			high = d
 		if d < low:
 			low = d
-	print low
-	print high
+	print(low)
+	print(high)
 
 def get_input():
 	with open('../day_9_input.txt') as directions:
