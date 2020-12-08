@@ -116,7 +116,7 @@ def run_test(day, lang, test):
 
 	# Run finished but we're not expecting anything specific
 	if not expected_output:
-		if len(result) < 15:
+		if len(result) < 15 and '\n' not in result:
 			print(f'Done! (Got "{result}")')
 		else:
 			print('Done!')
@@ -125,7 +125,7 @@ def run_test(day, lang, test):
 
 	# Check if the output matches the expected output
 	if expected_output == result:
-		if len(result) < 15:
+		if len(result) < 15 and '\n' not in result:
 			print(f'Pass! (Got "{result}")')
 		else:
 			print('Pass!')
@@ -133,7 +133,7 @@ def run_test(day, lang, test):
 		return True
 
 	# Everything ran but our expectations were not met
-	if len(result) < 15 and len(expected_output) < 15:
+	if len(result) < 15 and len(expected_output) < 15 and '\n' not in result and '\n' not in expected_output:
 		print(f'Fail! (Expected "{expected_output}" Got "{result}")')
 	else:
 		print('Fail!')
