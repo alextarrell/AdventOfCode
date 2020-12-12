@@ -23,15 +23,33 @@ def run_program(program):
 	trail = set()
 	while True:
 		if ip in trail:
-			break
+			return False, acc
+		if ip == len(program):
+			return True, acc
 		trail.add(ip)
 		ip, acc = step(program[ip], ip, acc)
-	return acc
+
+def fix_program(program):
+	for idx, line in enumerate(program):
+		if 'nop' in line:
+			line = line.replace('nop', 'jmp')
+		elif 'jmp' in line:
+			line = line.replace('jmp', 'nop')
+		else:
+			continue
+
+		altered = program[:idx] + [line] + program[idx+1:]
+		finished, result = run_program(altered)
+		if finished:
+			return idx, result
+	return -1, None
+
 
 def main():
 	data = [line.strip() for line in sys.stdin.readlines()]
 
-	print(run_program(data))
+	print(run_program(data)[1])
+	print(fix_program(data)[1])
 
 if __name__ == '__main__':
 	main()
